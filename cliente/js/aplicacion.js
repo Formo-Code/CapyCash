@@ -1,8 +1,5 @@
-/* === CONFIGURACIÓN GENERAL DE LA APLICACIÓN === */
-/* Acá ponemos la dirección base donde está nuestro "cerebro" (el servidor que maneja los datos).
-   'http://localhost:5000' significa que está corriendo en nuestra propia compu, en el puerto 5000.
-   '/api' es la parte de la dirección donde están todas las funciones para pedir o mandar datos. */
-const URL_BASE_API = 'http://localhost:5000/api';
+
+const URL_BASE_API = '/api';
 
 /* === SELECCIONANDO ELEMENTOS DE LA PÁGINA (DEL HTML) === */
 /* Estas líneas son como decirle a JavaScript: "Che, agarrame esta parte de la página".
