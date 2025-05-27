@@ -1,0 +1,821 @@
+/* === ESTILOS GENERALES PARA TODA LA PÁGINA (EL BODY) === */
+/* Acá le decimos cómo queremos que se vea el cuerpo principal de nuestra página web. */
+body {
+  /* Tipo de letra para toda la página. Intenta usar la fuente del sistema de Apple,
+     luego otras comunes como Segoe UI, Roboto, etc., y si no encuentra ninguna,
+     usa una fuente genérica sin serif.
+     También incluye emojis de Apple y Segoe. */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* Sacamos los márgenes que el navegador pone por defecto alrededor de la página. */
+  margin: 0;
+  /* Sacamos el relleno interno que el navegador pone por defecto. */
+  padding: 0;
+  /* Ponemos una imagen de fondo. La busca en la carpeta 'imagenes' que está un nivel más arriba. */
+  background-image: url('../imagenes/FONDO WEB.png');
+  /* Hacemos que la imagen de fondo cubra todo el espacio disponible, sin importar si se corta un poco. */
+  background-size: cover;
+  /* Centramos la imagen de fondo tanto horizontal como verticalmente. */
+  background-position: center center;
+  /* Evitamos que la imagen de fondo se repita si es más chica que la pantalla. */
+  background-repeat: no-repeat;
+  /* Fijamos la imagen de fondo para que no se mueva cuando hacemos scroll (bajamos o subimos la página). */
+  background-attachment: fixed;
+  /* Si la imagen de fondo no carga o mientras carga, se verá este color de fondo (un gris clarito). */
+  background-color: #f4f7f6;
+  /* Color de texto principal para la página (un gris oscuro, casi negro). */
+  color: #333;
+  /* Altura de línea para el texto, un poquito más espaciado de lo normal para que sea más fácil de leer. */
+  line-height: 1.6;
+  /* Usamos Flexbox para organizar el contenido. Esto nos da más control sobre cómo se acomodan las cosas. */
+  display: flex;
+  /* Hacemos que los elementos hijos se apilen uno debajo del otro (en columna). */
+  flex-direction: column;
+  /* Aseguramos que la página ocupe al menos el 100% de la altura de la pantalla del navegador. */
+  min-height: 100vh;
+}
+
+/* === ESTILOS PARA LOS TÍTULOS PRINCIPALES (H1, H2, H3) === */
+/* A todos los títulos de nivel 1, 2 y 3 les damos un toque especial. */
+h1, h2, h3 {
+  /* Color para los títulos (un azul medio violáceo). */
+  color: #5a67d8;
+  /* Sacamos el margen de arriba que suelen tener los títulos por defecto. */
+  margin-top: 0;
+}
+
+/* === ESTILOS PARA EL ENCABEZADO DE LA PÁGINA (HEADER) === */
+/* El 'header' es la parte de arriba de la página, donde suele estar el logo y el menú. */
+header {
+  /* Fondo blanco para el encabezado. */
+  background-color: white;
+  /* Relleno interno: 1.25rem arriba/abajo y 2rem a los costados.
+     (Un 'rem' es una medida relativa al tamaño de letra base del navegador, piola para la accesibilidad). */
+  padding: 1.25rem 2rem;
+  /* Color del texto dentro del encabezado (gris oscuro). */
+  color: #333;
+  /* Otra vez Flexbox para organizar los elementos del encabezado (logo y menú). */
+  display: flex;
+  /* Alineamos los elementos verticalmente al centro. */
+  align-items: center;
+  /* Distribuimos el espacio entre los elementos: el logo a un lado, el menú al otro. */
+  justify-content: space-between;
+  /* Le ponemos una sombrita abajo para que parezca que está "flotando" un poco. */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  /* Esto es para posicionar elementos hijos dentro del header de forma más precisa si hace falta. */
+  position: relative;
+}
+
+/* Contenedor del logo en el encabezado. */
+.header-logo-container {
+  /* Hacemos que el contenedor del logo intente ocupar el espacio disponible. */
+  flex-grow: 1;
+  /* Centramos el contenido (el logo) horizontalmente. */
+  text-align: center;
+  /* Sin márgenes externos. */
+  margin: 0;
+  /* Sin relleno interno. */
+  padding: 0;
+  /* Ajustamos la altura de línea para que no agregue espacio extra si el logo es una imagen. */
+  line-height: 0;
+}
+
+/* La imagen o texto que funciona como logo en el encabezado. */
+.header-logo-title {
+  /* Alto del logo: 6rem. */
+  height: 6rem;
+  /* Ancho automático para mantener la proporción de la imagen. */
+  width: auto;
+  /* Lo tratamos como un elemento en línea pero que puede tener alto y ancho. */
+  display: inline-block;
+  /* Alineamos verticalmente con el texto o elementos que estén al lado (si los hubiera). */
+  vertical-align: middle;
+}
+
+/* === ESTILOS PARA LA NAVEGACIÓN PRINCIPAL (EL MENÚ) === */
+/* El 'nav' es donde van los links para moverse por la página. 'main-nav' es un ID, o sea, un nombre único. */
+#main-nav {
+  /* Evitamos que el menú se achique si no hay espacio suficiente (se prioriza el logo). */
+  flex-shrink: 0;
+}
+
+/* La lista (ul) dentro del menú de navegación. */
+#main-nav ul {
+  /* Sacamos los puntitos o viñetas de la lista. */
+  list-style: none;
+  /* Sin relleno interno. */
+  padding: 0;
+  /* Sin márgenes externos. */
+  margin: 0;
+  /* Usamos Flexbox para poner los ítems del menú uno al lado del otro. */
+  display: flex;
+  /* Alineamos los ítems del menú verticalmente al centro. */
+  align-items: center;
+}
+
+/* Cada ítem (li) de la lista del menú. */
+#main-nav li {
+  /* Margen a la izquierda de cada ítem para separarlos un poco. */
+  margin-left: 1.5rem;
+}
+
+/* Los links (a) y botones (button) dentro del menú de navegación. */
+#main-nav a,
+#main-nav button {
+  /* Color del texto de los links/botones (el mismo azul violáceo de los títulos). */
+  color: #5a67d8;
+  /* Sacamos el subrayado que tienen los links por defecto. */
+  text-decoration: none;
+  /* Texto en negrita. */
+  font-weight: bold;
+  /* Sin fondo. */
+  background: none;
+  /* Sin borde. */
+  border: none;
+  /* Cambiamos el cursor a una manito para indicar que se puede hacer clic. */
+  cursor: pointer;
+  /* Tamaño de letra para los links/botones del menú. */
+  font-size: 1rem;
+  /* Relleno interno para que no estén tan pegados al borde. */
+  padding: 0.5rem 0.75rem;
+  /* Bordes redondeados. */
+  border-radius: 4px;
+  /* Una transición suavecita cuando cambia el color de fondo (dura 0.2 segundos). */
+  transition: background-color 0.2s ease;
+}
+
+/* Cuando pasamos el mouse por encima (hover) de un botón o link del menú. */
+#main-nav button:hover,
+#main-nav a:hover {
+  /* Cambiamos el color de fondo a un gris muy clarito. */
+  background-color: #e2e8f0;
+}
+
+/* === ESTILOS PARA EL CONTENIDO PRINCIPAL DE LA PÁGINA (MAIN) === */
+/* El 'main' es donde va el contenido más importante de cada sección de la página. */
+main {
+  /* Hacemos que el contenido principal ocupe el espacio vertical restante (gracias a Flexbox en el body). */
+  flex-grow: 1;
+  /* Relleno interno alrededor del contenido principal. */
+  padding: 2rem;
+  /* Ancho máximo del contenido principal, para que no se estire demasiado en pantallas grandes. */
+  max-width: 900px;
+  /* Ancho del contenido: 90% del espacio disponible, pero nunca más de 900px. */
+  width: 90%;
+  /* Margen: 2rem arriba/abajo, y 'auto' a los costados para centrarlo horizontalmente. */
+  margin: 2rem auto;
+  /* Fondo blanco para el área de contenido. */
+  background-color: white;
+  /* Sombrita alrededor del contenido, similar al header pero un poco más difusa. */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Bordes redondeados para el contenedor del contenido. */
+  border-radius: 8px;
+}
+
+/* === ESTILOS PARA LOS FORMULARIOS (FORM) === */
+/* Los formularios son para que el usuario ingrese datos (como un login, registro, etc.). */
+form {
+  /* Margen arriba del formulario. */
+  margin-top: 1rem;
+  /* Relleno interno del formulario. */
+  padding: 1.5rem;
+  /* Borde finito y de color gris clarito. */
+  border: 1px solid #e2e8f0;
+  /* Bordes redondeados para el formulario. */
+  border-radius: 6px;
+  /* Un fondo casi blanco, apenas diferente del 'main' para distinguirlo. */
+  background-color: #fdfdff;
+}
+
+/* Grupos de elementos dentro del formulario (por ejemplo, una etiqueta y su campo de texto). */
+.form-group {
+  /* Margen abajo para separar los grupos de campos. */
+  margin-bottom: 1.25rem;
+}
+
+/* Las etiquetas (label) que describen cada campo del formulario. */
+.form-group label {
+  /* Hacemos que la etiqueta ocupe toda la línea, así el campo de abajo queda debajo. */
+  display: block;
+  /* Margen abajo de la etiqueta, para separarla del campo. */
+  margin-bottom: 0.5rem;
+  /* Texto de la etiqueta un poco más grueso (semi-negrita). */
+  font-weight: 600;
+  /* Color de texto para la etiqueta (un gris azulado). */
+  color: #4a5568;
+}
+
+/* Campos de entrada de texto, email, contraseña, número, fecha, listas desplegables (select) y áreas de texto (textarea). */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+  /* Ancho del campo: 100% del contenedor del formulario. */
+  width: 100%;
+  /* Relleno interno de los campos. */
+  padding: 0.75rem;
+  /* Borde finito y de color gris medio. */
+  border: 1px solid #cbd5e0;
+  /* Bordes redondeados para los campos. */
+  border-radius: 4px;
+  /* Esto es importante para que el padding y el borde no agranden el ancho total del campo más allá del 100%. */
+  box-sizing: border-box;
+  /* Tamaño de letra dentro de los campos. */
+  font-size: 1rem;
+  /* Transición suavecita para el color del borde y la sombra cuando el campo está activo (focus). */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Cuando un campo está seleccionado o activo (tiene el "foco"). */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  /* Sacamos el borde que algunos navegadores ponen por defecto al hacer foco. */
+  outline: none;
+  /* Cambiamos el color del borde al azul violáceo. */
+  border-color: #5a67d8;
+  /* Agregamos una sombrita exterior de color azul para resaltar el campo activo. */
+  box-shadow: 0 0 0 2px rgba(90, 103, 216, 0.2);
+}
+
+/* Para las áreas de texto grandes (textarea). */
+.form-group textarea {
+  /* Permitimos que el usuario cambie el tamaño verticalmente, pero no horizontalmente. */
+  resize: vertical;
+  /* Altura mínima para el área de texto. */
+  min-height: 80px;
+}
+
+/* === ESTILOS PARA LOS BOTONES EN GENERAL Y BOTONES DE ENVÍO DE FORMULARIO === */
+/* Estos estilos se aplican a todos los botones y a los inputs que son de tipo "submit". */
+button, input[type="submit"] {
+  /* Color de fondo principal para los botones (el azul violáceo). */
+  background-color: #5a67d8;
+  /* Color del texto del botón (blanco). */
+  color: white;
+  /* Relleno interno del botón. */
+  padding: 0.75rem 1.5rem;
+  /* Sin borde. */
+  border: none;
+  /* Bordes redondeados. */
+  border-radius: 4px;
+  /* Cursor de manito al pasar por encima. */
+  cursor: pointer;
+  /* Tamaño de letra. */
+  font-size: 1rem;
+  /* Texto en negrita. */
+  font-weight: bold;
+  /* Transición suave para el color de fondo y un pequeño efecto al hacer clic. */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  /* Margen a la derecha para separar botones si hay varios juntos. */
+  margin-right: 0.5rem;
+  /* Para que se comporte como un bloque en línea y se pueda alinear verticalmente. */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Al último botón o input de tipo submit en un grupo, le sacamos el margen derecho. */
+button:last-child, input[type="submit"]:last-child {
+  margin-right: 0;
+}
+
+/* Cuando pasamos el mouse por encima de un botón o input de submit. */
+button:hover, input[type="submit"]:hover {
+  /* Oscurecemos un poco el color de fondo. */
+  background-color: #4c51bf;
+}
+
+/* Cuando hacemos clic en un botón o input de submit (estado activo). */
+button:active, input[type="submit"]:active {
+  /* Lo achicamos un poquito para dar efecto de "presionado". */
+  transform: scale(0.98);
+}
+
+/* Botones secundarios o botones genéricos de tipo "button" (no de envío). */
+button.secondary, button[type="button"] {
+  /* Color de fondo grisáceo para botones secundarios. */
+  background-color: #a0aec0;
+}
+
+/* Cuando pasamos el mouse por encima de un botón secundario. */
+button.secondary:hover, button[type="button"]:hover {
+  /* Oscurecemos un poco el gris. */
+  background-color: #718096;
+}
+
+/* Botones de "peligro" (como para borrar algo). */
+button.danger {
+  /* Color de fondo rojo. */
+  background-color: #e53e3e;
+}
+
+/* Cuando pasamos el mouse por encima de un botón de peligro. */
+button.danger:hover {
+  /* Oscurecemos un poco el rojo. */
+  background-color: #c53030;
+}
+
+/* === ESTILOS PARA MENSAJES DE ERROR Y OTROS MENSAJES === */
+/* Para mostrar mensajes al usuario, como errores o confirmaciones. */
+.error-message, .message {
+  /* Relleno interno. */
+  padding: 0.85rem 1rem;
+  /* Margen arriba. */
+  margin-top: 1rem;
+  /* Bordes redondeados. */
+  border-radius: 4px;
+  /* Estilo del borde (sólido). */
+  border-style: solid;
+  /* Ancho del borde. */
+  border-width: 1px;
+  /* Tamaño de letra un poquito más chico. */
+  font-size: 0.95rem;
+  /* Por defecto, los mensajes están ocultos. Se mostrarán con JavaScript. */
+  display: none;
+}
+
+/* Mensajes de error específicos. */
+.error-message {
+  /* Color del texto (rojo oscuro). */
+  color: #c53030;
+  /* Color de fondo (rojo muy clarito). */
+  background-color: #fed7d7;
+  /* Color del borde (rojo). */
+  border-color: #f56565;
+}
+
+/* Mensajes genéricos (por ejemplo, de éxito). */
+.message {
+  /* Color del texto (verde oscuro). */
+  color: #2f855a;
+  /* Color de fondo (verde claro). */
+  background-color: #c6f6d5;
+  /* Color del borde (verde). */
+  border-color: #68d391;
+}
+
+/* Mensajes informativos (con la clase 'info'). */
+.message.info {
+  /* Color del texto (azul oscuro). */
+  color: #2b6cb0;
+  /* Color de fondo (azul claro). */
+  background-color: #bee3f8;
+  /* Color del borde (azul). */
+  border-color: #90cdf4;
+}
+
+/* Un alias para los mensajes de éxito, por si se usa explícitamente 'success'. */
+.message.success {
+  color: #2f855a;
+  background-color: #c6f6d5;
+  border-color: #68d391;
+}
+
+/* === CLASES DE UTILIDAD === */
+/* Estas son clases que podemos agregar a cualquier elemento para hacer cositas rápidas. */
+
+/* Para ocultar completamente un elemento. El '!important' hace que esta regla tenga más prioridad. */
+.hidden {
+  display: none !important;
+}
+
+/* Para ocultar un elemento visualmente, pero que siga siendo leído por lectores de pantalla (importante para accesibilidad).
+   Básicamente, lo hacemos súper chiquito y lo mandamos afuera de la pantalla. */
+.visually-hidden {
+  position: absolute; /* Lo sacamos del flujo normal de la página. */
+  width: 1px; /* Ancho mínimo. */
+  height: 1px; /* Alto mínimo. */
+  padding: 0; /* Sin relleno. */
+  margin: -1px; /* Margen negativo para asegurar que esté fuera de la vista. */
+  overflow: hidden; /* Si algo se sale de ese pixel, que no se vea. */
+  clip: rect(0, 0, 0, 0); /* Otra forma de ocultar contenido. */
+  white-space: nowrap; /* Evita que el texto se parta en varias líneas. */
+  border: 0; /* Sin borde. */
+}
+
+/* === ESTILOS PARA EL RESUMEN DEL PANEL DE CONTROL (DASHBOARD) === */
+/* El 'dashboard' es como el panel principal donde se muestra información importante. */
+#dashboard-summary {
+  /* Fondo azul muy clarito para el resumen. */
+  background-color: #ebf4ff;
+  /* Relleno interno. */
+  padding: 1.5rem;
+  /* Bordes redondeados. */
+  border-radius: 8px;
+  /* Margen abajo para separarlo de lo que sigue. */
+  margin-bottom: 2rem;
+  /* Borde finito de color azul claro. */
+  border: 1px solid #bee3f8;
+  /* Usamos CSS Grid para organizar los elementos del resumen en una grilla. */
+  display: grid;
+  /* Columnas que se ajustan automáticamente: cada una tiene un mínimo de 150px
+     y pueden crecer para ocupar el espacio disponible (1fr). */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* Espacio entre las celdas de la grilla. */
+  gap: 1rem;
+}
+
+/* Cada cajita (div) dentro del resumen del dashboard. */
+#dashboard-summary div {
+  /* Centramos el texto dentro de cada cajita. */
+  text-align: center;
+}
+
+/* Los párrafos (p) dentro del resumen del dashboard. */
+#dashboard-summary p {
+  /* Márgenes chiquitos arriba y abajo. */
+  margin: 0.2rem 0;
+  /* Tamaño de letra. */
+  font-size: 1rem;
+  /* Color del texto (gris azulado). */
+  color: #4a5568;
+}
+
+/* Los valores numéricos (como montos) dentro del resumen. */
+#dashboard-summary .value {
+  /* Tamaño de letra más grande para los números. */
+  font-size: 1.5rem;
+  /* Texto en negrita. */
+  font-weight: bold;
+  /* Lo hacemos un bloque para que ocupe su propia línea. */
+  display: block;
+  /* Margen arriba para separarlo del texto descriptivo. */
+  margin-top: 0.25rem;
+}
+
+/* Valores de ingresos, les damos color verde. */
+#dashboard-summary .value.income { color: #38a169; }
+/* Valores de gastos, les damos color rojo. */
+#dashboard-summary .value.expense { color: #e53e3e; }
+/* Valor del balance, le damos color azul violáceo. */
+#dashboard-summary .value.balance { color: #5a67d8; }
+
+/* === ESTILOS PARA LISTAS DE TRANSACCIONES RECIENTES Y PRESUPUESTO COMPLETO === */
+/* Se aplican a la lista de transacciones recientes y a la lista completa del presupuesto. */
+#recent-transactions ul,
+#full-budget-list {
+  /* Sacamos los puntitos de la lista. */
+  list-style: none;
+  /* Sin relleno interno. */
+  padding: 0;
+  /* Margen arriba. */
+  margin-top: 1rem;
+}
+
+/* Cada ítem (li) de las listas de transacciones/presupuesto. */
+#recent-transactions li,
+#full-budget-list li {
+  /* Fondo blanco para cada ítem. */
+  background-color: #fff;
+  /* Borde finito gris clarito. */
+  border: 1px solid #e2e8f0;
+  /* Relleno interno. */
+  padding: 1rem 1.5rem;
+  /* Margen abajo para separar los ítems. */
+  margin-bottom: 0.75rem;
+  /* Bordes redondeados. */
+  border-radius: 6px;
+  /* Usamos Flexbox para acomodar los elementos dentro de cada ítem. */
+  display: flex;
+  /* Si no caben en una línea, que se pasen a la siguiente (útil en pantallas chicas). */
+  flex-wrap: wrap;
+  /* Distribuimos el espacio entre los elementos del ítem. */
+  justify-content: space-between;
+  /* Alineamos verticalmente al centro. */
+  align-items: center;
+  /* Espacio entre los elementos internos del ítem. */
+  gap: 1rem;
+}
+
+/* El contenedor de la categoría, fecha y descripción dentro de cada ítem. */
+#recent-transactions li > div,
+#full-budget-list li > div {
+  /* Hacemos que este contenedor ocupe el espacio disponible a lo ancho. */
+  flex-grow: 1;
+}
+
+/* Los 'span' (textos) dentro de cada ítem de la lista. */
+#recent-transactions li span,
+#full-budget-list li span {
+  /* Margen a la derecha para separar los textos. */
+  margin-right: 1rem;
+  /* Para que se puedan aplicar márgenes y se comporten como bloques pequeños. */
+  display: inline-block;
+}
+
+/* La categoría dentro de cada ítem. */
+#recent-transactions li .category,
+#full-budget-list li .category {
+  /* Texto un poco más grueso (semi-negrita). */
+  font-weight: 600;
+}
+
+/* La fecha dentro de cada ítem. */
+#recent-transactions li .date,
+#full-budget-list li .date {
+  /* Color gris. */
+  color: #718096;
+  /* Tamaño de letra un poquito más chico. */
+  font-size: 0.9em;
+}
+
+/* La descripción dentro de cada ítem. */
+#recent-transactions li .description,
+#full-budget-list li .description {
+  /* Color gris azulado. */
+  color: #4a5568;
+  /* Tamaño de letra un poquito más chico. */
+  font-size: 0.95em;
+  /* Hacemos que ocupe toda la línea si el texto es largo. */
+  display: block;
+  /* Margen arriba para separarlo un poco. */
+  margin-top: 0.25rem;
+}
+
+/* Contenedor del monto y los botones de acciones (editar/eliminar) en cada ítem. */
+#recent-transactions li .amount-actions,
+#full-budget-list li .amount-actions {
+  /* Usamos Flexbox para alinear el monto y los botones. */
+  display: flex;
+  align-items: center;
+  /* Espacio entre el monto y los botones. */
+  gap: 1rem;
+  /* Evitamos que este contenedor se achique si falta espacio. */
+  flex-shrink: 0;
+}
+
+/* El monto (cantidad de plata) en cada ítem. */
+#recent-transactions li .amount,
+#full-budget-list li .amount {
+  /* Texto en negrita. */
+  font-weight: bold;
+  /* Tamaño de letra un poco más grande. */
+  font-size: 1.1rem;
+  /* Ancho mínimo para que los montos se alineen bien, incluso si tienen pocos dígitos. */
+  min-width: 90px;
+  /* Alineamos el texto del monto a la derecha. */
+  text-align: right;
+}
+
+/* Montos de ingresos, les damos color verde. */
+#recent-transactions li .amount.income,
+#full-budget-list li .amount.income {
+  color: #38a169;
+}
+
+/* Montos de gastos, les damos color rojo. */
+#recent-transactions li .amount.expense,
+#full-budget-list li .amount.expense {
+  color: #e53e3e;
+}
+
+/* Botones de acciones (editar/eliminar) dentro de cada ítem. */
+#recent-transactions li .actions button,
+#full-budget-list li .actions button {
+  /* Sin fondo. */
+  background: none;
+  /* Sin borde. */
+  border: none;
+  /* Cursor de manito. */
+  cursor: pointer;
+  /* Relleno chiquito. */
+  padding: 0.25rem;
+  /* Margen a la izquierda para separarlos si hay más de uno. */
+  margin-left: 0.5rem;
+  /* Tamaño del ícono o emoji que usemos como botón. */
+  font-size: 1rem;
+  /* Color gris clarito para los íconos. */
+  color: #a0aec0;
+  /* Transición suave para el color. */
+  transition: color 0.2s ease;
+}
+
+/* Cuando pasamos el mouse por encima de los botones de acciones. */
+#recent-transactions li .actions button:hover,
+#full-budget-list li .actions button:hover {
+  /* Cambiamos el color a un gris más oscuro. */
+  color: #4a5568;
+}
+
+/* Cuando pasamos el mouse por encima del botón de eliminar. */
+#recent-transactions li .actions .delete-btn:hover,
+#full-budget-list li .actions .delete-btn:hover {
+  /* Cambiamos el color a rojo. */
+  color: #c53030;
+}
+
+/* === ESTILOS PARA LAS OPCIONES DE REPORTES === */
+/* Contenedor para las opciones de generación de reportes (ej. filtros de fecha). */
+.report-options {
+  /* Margen abajo. */
+  margin-bottom: 1.5rem;
+  /* Usamos Flexbox para alinear los elementos de las opciones. */
+  display: flex;
+  align-items: center;
+  /* Espacio entre los elementos de las opciones. */
+  gap: 1rem;
+}
+
+/* Contenido del reporte (donde se mostrará la tabla, por ejemplo). */
+#report-content {
+  /* Margen arriba. */
+  margin-top: 1.5rem;
+  /* Relleno interno. */
+  padding: 1.5rem;
+  /* Fondo muy clarito para la zona de la tabla. */
+  background-color: #f8fafc;
+  /* Borde finito gris. */
+  border: 1px solid #e2e8f0;
+  /* Bordes redondeados. */
+  border-radius: 6px;
+  /* Altura mínima para que no se vea vacío si no hay datos. */
+  min-height: 200px;
+}
+
+/* Tablas dentro del contenido del reporte. */
+#report-content table {
+  /* Ancho completo. */
+  width: 100%;
+  /* Los bordes de las celdas se unen en uno solo, queda más prolijo. */
+  border-collapse: collapse;
+  /* Margen arriba. */
+  margin-top: 1rem;
+}
+
+/* Celdas de encabezado (th) y celdas de datos (td) de la tabla. */
+#report-content th, #report-content td {
+  /* Borde finito gris para todas las celdas. */
+  border: 1px solid #e2e8f0;
+  /* Relleno interno de las celdas. */
+  padding: 0.75rem 1rem;
+  /* Alineación del texto a la izquierda. */
+  text-align: left;
+  /* Alineación vertical al medio. */
+  vertical-align: middle;
+}
+
+/* Celdas de encabezado (th) de la tabla. */
+#report-content th {
+  /* Fondo gris clarito para los encabezados. */
+  background-color: #edf2f7;
+  /* Texto en semi-negrita. */
+  font-weight: 600;
+}
+
+/* Filas pares de la tabla (para dar un efecto "cebra" y facilitar la lectura). */
+#report-content tr:nth-child(even) {
+  /* Fondo muy clarito, un poco diferente al de las impares. */
+  background-color: #f8fafc;
+}
+
+/* Fila de total en la tabla (si existe). */
+#report-content .total-row td {
+  /* Texto en negrita. */
+  font-weight: bold;
+  /* Fondo gris un poco más oscuro para resaltar la fila de total. */
+  background-color: #e2e8f0;
+}
+
+/* === ESTILOS PARA EL INDICADOR DE CARGA === */
+/* Un mensajito que aparece cuando algo está cargando, como "Cargando...". */
+#loading-indicator {
+  /* Posición fija en la pantalla, no se mueve con el scroll. */
+  position: fixed;
+  /* Lo centramos verticalmente (50% desde arriba). */
+  top: 50%;
+  /* Lo centramos horizontalmente (50% desde la izquierda). */
+  left: 50%;
+  /* Lo movemos la mitad de su propio tamaño hacia arriba y a la izquierda para que quede perfectamente centrado. */
+  transform: translate(-50%, -50%);
+  /* Fondo negro semi-transparente. */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Texto blanco. */
+  color: white;
+  /* Relleno interno. */
+  padding: 1rem 2rem;
+  /* Bordes redondeados. */
+  border-radius: 8px;
+  /* Un número alto para asegurar que esté por encima de todo lo demás en la página. */
+  z-index: 1000;
+  /* Texto en negrita. */
+  font-weight: bold;
+}
+
+/* === ESTILOS PARA EL PIE DE PÁGINA (FOOTER) === */
+/* El 'footer' es la parte de abajo de todo de la página. */
+footer {
+  /* Texto centrado. */
+  text-align: center;
+  /* Relleno interno. */
+  padding: 1.5rem;
+  /* Margen arriba para separarlo del contenido. */
+  margin-top: 2rem;
+  /* Fondo gris clarito. */
+  background-color: #e2e8f0;
+  /* Color del texto (gris azulado). */
+  color: #4a5568;
+  /* Tamaño de letra un poquito más chico. */
+  font-size: 0.9rem;
+}
+
+/* Si hay un logo en el pie de página. */
+.footer-logo {
+  /* Lo hacemos un bloque para poder centrarlo con margen automático. */
+  display: block;
+  /* Alto del logo (ajustalo según tu imagen). */
+  height:100px;
+  /* Ancho automático para mantener la proporción. */
+  width: auto;
+  /* Margen: 1rem arriba, centrado horizontalmente (auto), 0 abajo. */
+  margin: 1rem auto 0;
+}
+
+/* === MEDIA QUERIES PARA HACER LA PÁGINA RESPONSIVE === */
+/* 'Media queries' son reglas que se aplican solo si se cumplen ciertas condiciones,
+   como el ancho de la pantalla. Esto es para que la página se vea bien en celulares, tablets, etc. */
+
+/* Cuando el ancho de la pantalla sea 768 píxeles o menos (típico de tablets para abajo). */
+@media (max-width: 768px) {
+  /* Ajustamos el encabezado. */
+  header {
+    /* Los elementos del encabezado (logo y menú) se ponen uno debajo del otro. */
+    flex-direction: column;
+    /* Menos relleno en pantallas chicas. */
+    padding: 1rem;
+  }
+
+  /* El logo en el encabezado. */
+  .header-logo-title {
+    /* Hacemos el logo un poco más chico en móviles. */
+    height: 5rem;
+    /* Un poquito de margen abajo para separarlo del menú si está debajo. */
+    margin-bottom: 0.5rem;
+  }
+
+  /* La lista del menú de navegación. */
+  #main-nav ul {
+    /* Centramos los links del menú. */
+    justify-content: center;
+    /* Si no caben en una línea, que se pasen a la siguiente. */
+    flex-wrap: wrap;
+  }
+
+  /* Cada ítem del menú. */
+  #main-nav li {
+    /* Menos margen entre ítems en móviles. */
+    margin: 0.25rem 0.5rem;
+  }
+
+  /* El contenido principal. */
+  main {
+    /* Menos relleno en móviles. */
+    padding: 1rem;
+    /* Hacemos que ocupe casi todo el ancho en móviles. */
+    width: 95%;
+    /* Menos margen arriba/abajo. */
+    margin: 1rem auto;
+  }
+
+  /* El resumen del dashboard. */
+  #dashboard-summary {
+    /* Hacemos que las cajitas del resumen se pongan en una sola columna en móviles. */
+    grid-template-columns: 1fr;
+    /* Menos espacio entre las cajitas. */
+    gap: 0.5rem;
+  }
+
+  /* Los ítems de las listas de transacciones/presupuesto. */
+  #recent-transactions li,
+  #full-budget-list li {
+    /* Los elementos dentro de cada ítem se apilan en columna. */
+    flex-direction: column;
+    /* Alineamos los elementos al inicio (izquierda). */
+    align-items: flex-start;
+    /* Menos espacio entre los elementos del ítem. */
+    gap: 0.5rem;
+  }
+
+  /* El contenedor del monto y las acciones en las listas. */
+  #recent-transactions li .amount-actions,
+  #full-budget-list li .amount-actions {
+    /* Hacemos que ocupe todo el ancho disponible. */
+    width: 100%;
+    /* Alineamos los botones a la derecha. */
+    justify-content: flex-end;
+    /* Un poquito de margen arriba para separarlo de la descripción. */
+    margin-top: 0.5rem;
+  }
+
+  /* El monto en las listas. */
+  #recent-transactions li .amount,
+  #full-budget-list li .amount {
+    /* Ancho automático, ya no necesitamos el mínimo fijo. */
+    min-width: auto;
+    /* Alineamos el monto a la izquierda (porque ahora está en su propia "línea"). */
+    text-align: left;
+    /* El margen derecho automático empuja los botones de acciones a la derecha. */
+    margin-right: auto;
+  }
+}

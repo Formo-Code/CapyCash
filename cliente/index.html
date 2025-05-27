@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Presupuesto Personal - CapyCash</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-logo-container">
+            <img src="imagenes/CAPYCASH LOGO 2.png" alt="CapyCash Gestor de Presupuesto" class="header-logo-title">
+        </div>
+        <nav id="main-nav">
+            <ul id="nav-links"></ul>
+        </nav>
+    </header>
+
+    <main id="app-content">
+        <section id="login-view" class="view hidden">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Correo Electrónico:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Entrar</button>
+                <p>¿No tienes cuenta? <a href="#" id="show-register">Regístrate aquí</a></p>
+            </form>
+            <div id="login-error" class="error-message"></div>
+        </section>
+
+        <section id="register-view" class="view hidden">
+            <h2>Registro</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-username">Nombre de Usuario:</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Correo Electrónico:</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña (mín. 6 caracteres):</label>
+                    <input type="password" id="register-password" minlength="6" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmar Contraseña:</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button type="submit">Registrarse</button>
+                <p>¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión aquí</a></p>
+            </form>
+            <div id="register-error" class="error-message"></div>
+        </section>
+
+        <section id="dashboard-view" class="view hidden">
+            <h2>Panel Principal</h2>
+            <div id="dashboard-summary">
+                <p>Cargando resumen...</p>
+            </div>
+            <div id="recent-transactions">
+                <h3>Transacciones Recientes</h3>
+                <ul id="transactions-list"></ul>
+                <button id="add-transaction-btn">Añadir Transacción</button>
+            </div>
+        </section>
+
+        <section id="transaction-form-view" class="view hidden">
+            <h2 id="transaction-form-title">Añadir Transacción</h2>
+            <form id="transaction-form">
+                <input type="hidden" id="transaction-id">
+                <div class="form-group">
+                    <label for="transaction-type">Tipo:</label>
+                    <select id="transaction-type" required>
+                        <option value="gasto">Gasto</option>
+                        <option value="ingreso">Ingreso</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-category">Categoría:</label>
+                    <input type="text" id="transaction-category" required placeholder="Ej: Comida, Salario">
+                </div>
+                <div class="form-group">
+                    <label for="transaction-amount">Monto:</label>
+                    <input type="number" id="transaction-amount" step="0.01" min="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-date">Fecha:</label>
+                    <input type="date" id="transaction-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-description">Descripción (Opcional):</label>
+                    <textarea id="transaction-description" rows="2"></textarea>
+                </div>
+                <button type="submit" id="save-transaction-btn">Guardar</button>
+                <button type="button" id="cancel-transaction-btn">Cancelar</button>
+            </form>
+            <div id="transaction-error" class="error-message"></div>
+        </section>
+
+        <section id="budget-view" class="view hidden">
+            <h2>Registros de Presupuesto</h2>
+            <div id="budget-list-container">
+                <ul id="full-budget-list"></ul>
+            </div>
+            <button id="add-budget-item-btn">Añadir Nuevo Registro</button>
+        </section>
+
+        <section id="reports-view" class="view hidden">
+            <h2>Reportes</h2>
+            <div class="report-options">
+                <label for="report-type">Tipo de Reporte:</label>
+                <select id="report-type">
+                    <option value="category-expense">Gastos por Categoría</option>
+                    <option value="category-income">Ingresos por Categoría</option>
+                </select>
+                <button id="generate-report-btn">Generar</button>
+            </div>
+            <div id="report-content"><p>Seleccione un tipo de reporte y genere.</p></div>
+            <div id="report-error" class="error-message"></div>
+        </section>
+
+        <section id="profile-view" class="view hidden">
+            <h2>Perfil de Usuario</h2>
+            <form id="profile-form">
+                <div class="form-group">
+                    <label for="profile-username">Nombre de Usuario:</label>
+                    <input type="text" id="profile-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="profile-email">Correo Electrónico:</label>
+                    <input type="email" id="profile-email" required>
+                </div>
+                <button type="submit">Actualizar Perfil</button>
+            </form>
+            <div id="profile-message" class="message"></div>
+        </section>
+
+        <div id="loading-indicator" class="hidden">Cargando...</div>
+        <div id="global-message" class="message hidden"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Hecha con ❤️ por Duarte Fabricio, Arias Fabio, Amarilla Sebastián, Azcona Enzo, Coronel Marcelo, Coronel Nahuel y Alvarez Mikaela.</p>
+        <img src="imagenes/LOGO FORMOCODE 2.png" alt="Logo Formocode" class="footer-logo">
+    </footer>
+
+    <script src="js/autenticacionCliente.js"></script>
+    <script src="js/presupuestoCliente.js"></script>
+    <script src="js/panelCliente.js"></script>
+    <script src="js/perfilCliente.js"></script>
+    <script src="js/reportesCliente.js"></script>
+    <script src="js/aplicacion.js"></script> 
+</body>
+</html>
